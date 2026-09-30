@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: havon-foods-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: havon_foods_db
+      POSTGRES_USER: havon_admin
+      POSTGRES_PASSWORD: havon_secret_password
+    volumes:
+      - havon_pgdata:/var/lib/postgresql/data
+
+volumes:
+  havon_pgdata:
