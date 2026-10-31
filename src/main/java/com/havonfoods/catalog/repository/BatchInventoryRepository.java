@@ -21,4 +21,8 @@ public interface BatchInventoryRepository extends JpaRepository<BatchInventory, 
             @Param("variantId") Long variantId,
             @Param("currentDate") LocalDate currentDate
     );
+
+	List<BatchInventory> findByVariantIdAndQuantityAvailableGreaterThanOrderByExpiryDateAsc(Long variantId, int i);
+    
+    
 }

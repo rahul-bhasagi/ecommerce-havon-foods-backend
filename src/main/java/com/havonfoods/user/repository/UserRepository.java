@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.havonfoods.user.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Long> {
 	@Query("SELECT u FROM User u WHERE u.email = :identifier OR u.phoneNumber = :identifier")
     Optional<User> findByIdentifier(@Param("identifier") String identifier);
 

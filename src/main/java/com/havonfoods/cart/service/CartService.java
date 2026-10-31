@@ -12,4 +12,5 @@ public interface CartService {
     CartResponse updateItem(User currentUser, String sessionToken, Long itemId, UpdateCartItemRequest request);
     CartResponse removeItem(User currentUser, String sessionToken, Long itemId);
     CartResponse mergeCart(User user, String sessionToken);
+	void clearCart(Long id);
 }

@@ -231,5 +231,12 @@ public class CartServiceImpl implements CartService {
                 .subTotal(subTotal)
                 .build();
     }
-
+    
+    @Transactional
+    public void clearCart(Long userId) {
+        cartRepository.findByUserId(userId).ifPresent(cart -> {
+            cart.getItems().clear();
+            cartRepository.save(cart);
+        });
+    }
 }

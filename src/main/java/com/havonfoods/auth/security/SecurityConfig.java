@@ -58,6 +58,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/v1/categories/**").permitAll() // for products Added
                 .requestMatchers("/api/v1/cart/**").permitAll()
                 .requestMatchers("/api/v1/public/**").permitAll()
+                .requestMatchers("/api/v1/payments/webhook").permitAll()
+                .requestMatchers("/api/v1/payments/verify").authenticated()
                 .anyRequest().authenticated()
             )
             .authenticationProvider(authenticationProvider())
